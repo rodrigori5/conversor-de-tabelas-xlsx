@@ -43,13 +43,13 @@ if(isset($_POST['save_excel_data'])) {
             
             $newJsonString = json_encode($tableArrayList, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
             
-            if(file_put_contents($jsonFilePath, $newJsonString) !== false) {
+            if(file_put_contents($jsonFilePath, data: $newJsonString) !== false) {
                 $_SESSION['message'] = "Tabela convertida para JSON com sucesso";
             } else {
                 $_SESSION['message'] = "Falha ao salvar JSON";
             }
 
-            header('Location: glpi_pro.php');
+            header('Location: converter_tabela.php');
             exit(0);
         } else {
             $_SESSION['message'] = "Arquivo inválido";
